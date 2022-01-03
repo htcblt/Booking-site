@@ -12,6 +12,7 @@
   "dependencies": {
     "browser-sync": "^2.27.7",
     "cssnano": "^5.0.14",
+    "flickity": "^2.3.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
     "gulp-plumber": "^1.2.1",

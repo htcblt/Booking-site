@@ -4,6 +4,7 @@ const postcss = require('gulp-postcss');
 const cssnano = require('cssnano');
 const terser = require('gulp-terser');
 const browsersync = require('browser-sync').create();
+const pug = require('gulp-pug');
 
 // Sass Task
 function scssTask() {
@@ -22,7 +23,9 @@ function browsersyncServe(cb) {
 	});
 	cb();
 }
-
+function htmltopug() {
+	return src('views/*.pug').pipe(pug()).pipe(dest('./'));
+}
 function browsersyncReload(cb) {
 	browsersync.reload();
 	cb();
@@ -32,10 +35,10 @@ function browsersyncReload(cb) {
 function watchTask() {
 	watch('*.html', browsersyncReload);
 	watch(
-		['app/scss/**/*.scss', 'app/js/**/*.js'],
-		series(scssTask, browsersyncReload)
+		['app/scss/**/*.scss', 'app/js/**/*.js', 'views/**/*.pug'],
+		series(scssTask, htmltopug, browsersyncReload)
 	);
 }
 
 // Default Gulp task
-exports.default = series(scssTask, browsersyncServe, watchTask);
+exports.default = series(scssTask, browsersyncServe, htmltopug, watchTask);

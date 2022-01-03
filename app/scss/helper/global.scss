@@ -73,9 +73,9 @@ a {
 	min-height: $finger-size;
 	border-radius: $border-radius;
 	color: $color-darkblue;
-	padding-left: 30px;
+	padding-left: 10px;
 	padding-right: 10px;
-	width: 88%;
+	width: 100%;
 
 	&::placeholder {
 		color: rgba($color-darkblue, 0.5);
@@ -90,7 +90,7 @@ a {
 		-webkit-appearance: none;
 		display: inline-block;
 		width: 100%;
-		padding-right: 30px;
+		padding-right: 3 0px;
 		color: $color-darkblue;
 		height: $finger-size;
 	}
